@@ -16,7 +16,7 @@ public interface PostService {
     //get Single Post
     PostDto getPostById(Integer postId);
     //get All posts
-    List<PostDto> getAllPosts();
+    List<PostDto> getAllPosts(Integer pageNumber,Integer pageSize);
     //get Post by Category
     List<PostDto> getPostByCategory(Integer categoryId);
     //get Post by Users
