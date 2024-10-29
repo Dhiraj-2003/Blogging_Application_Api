@@ -3,9 +3,13 @@ package com.dhiraj.blog.services;
 import com.dhiraj.blog.entities.Category;
 import com.dhiraj.blog.exceptions.ResourceNotFoundException;
 import com.dhiraj.blog.payloads.CategoryDto;
+import com.dhiraj.blog.payloads.CategoryResponse;
 import com.dhiraj.blog.repositories.CategoryRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,9 +53,22 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public List<CategoryDto> getAllCategories() {
-        List<Category> categories = categoryRepository.findAll();
+    public CategoryResponse getAllCategories(Integer pageNumber, Integer pageSize) {
+        Pageable page = PageRequest.of(pageNumber,pageSize);
+        Page<Category> pageCat = categoryRepository.findAll(page);
+
+        List<Category> categories = pageCat.getContent();
+
         List<CategoryDto> categoryDtos = categories.stream().map((cat)->modelMapper.map(cat,CategoryDto.class)).collect(Collectors.toList());
-        return categoryDtos;
+
+        CategoryResponse categoryResponse = new CategoryResponse();
+        categoryResponse.setContent(categoryDtos);
+        categoryResponse.setPageNumber(pageCat.getNumber());
+        categoryResponse.setPageSize(pageCat.getSize());
+        categoryResponse.setTotalPages(pageCat.getTotalPages());
+        categoryResponse.setTotalElements(pageCat.getNumberOfElements());
+        categoryResponse.setLastPage(pageCat.isLast());
+
+        return categoryResponse;
     }
 }
