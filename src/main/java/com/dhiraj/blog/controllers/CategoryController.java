@@ -3,6 +3,7 @@ package com.dhiraj.blog.controllers;
 import com.dhiraj.blog.entities.Category;
 import com.dhiraj.blog.payloads.ApiResponse;
 import com.dhiraj.blog.payloads.CategoryDto;
+import com.dhiraj.blog.payloads.CategoryResponse;
 import com.dhiraj.blog.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.CreatedDate;
@@ -11,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping("/api/categories")
@@ -45,8 +48,11 @@ public class CategoryController {
     }
     //getall
     @GetMapping("/")
-    public ResponseEntity<List<CategoryDto>> getAllCategory(){
-        List<CategoryDto> categoryDto = categoryService.getAllCategories();
-        return ResponseEntity.ok(categoryDto);
+    public ResponseEntity<CategoryResponse> getAllCategory(
+            @RequestParam(value = "pageNumber",defaultValue = "0",required = false) Integer pageNumber,
+            @RequestParam(value = "pageSize",defaultValue = "5",required = false) Integer pageSize
+    ){
+        CategoryResponse categoryResponse = categoryService.getAllCategories(pageNumber,pageSize);
+        return ResponseEntity.ok(categoryResponse);
     }
 }
