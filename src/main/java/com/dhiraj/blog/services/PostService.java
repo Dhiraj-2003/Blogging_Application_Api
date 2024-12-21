@@ -1,6 +1,5 @@
 package com.dhiraj.blog.services;
 
-import com.dhiraj.blog.entities.Post;
 import com.dhiraj.blog.payloads.PostDto;
 import com.dhiraj.blog.payloads.PostResponse;
 
@@ -17,7 +16,7 @@ public interface PostService {
     //get Single Post
     PostDto getPostById(Integer postId);
     //get All posts
-    PostResponse getAllPosts(Integer pageNumber, Integer pageSize);
+    PostResponse getAllPosts(Integer pageNumber, Integer pageSize, String sortBy, String sortDir);
     //get Post by Category
     List<PostDto> getPostByCategory(Integer categoryId);
     //get Post by Users
