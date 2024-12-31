@@ -6,8 +6,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import javax.crypto.spec.SecretKeySpec;
-import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -57,8 +55,6 @@ public class JwtTokenHelper {
     // 2. Sign the JWT using HS512 algorithm and the secret key
     // 3. Compact the JWT to a URL-safe string
     private String doGenerateToken(Map<String, Object> claims, String subject) {
-//        Convert the secret to a Key object
-//        Key key = new SecretKeySpec(secret.getBytes(), SignatureAlgorithm.HS512.getJcaName());
 
         return Jwts.builder()
                 .setClaims(claims)

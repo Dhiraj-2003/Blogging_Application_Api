@@ -24,8 +24,11 @@ public class User implements UserDetails {
 
     @Column(name = "user_name",nullable = false)
     private String name;
+
     private String email;
+
     private String password;
+
     private String about;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
