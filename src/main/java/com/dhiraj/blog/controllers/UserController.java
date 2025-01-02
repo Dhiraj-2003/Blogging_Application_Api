@@ -1,6 +1,6 @@
 package com.dhiraj.blog.controllers;
 
-import com.dhiraj.blog.entities.User;
+
 import com.dhiraj.blog.payloads.ApiResponse;
 import com.dhiraj.blog.payloads.UserDto;
 import com.dhiraj.blog.services.UserService;

@@ -4,7 +4,6 @@ import com.dhiraj.blog.entities.Comment;
 import com.dhiraj.blog.entities.Post;
 import com.dhiraj.blog.exceptions.ResourceNotFoundException;
 import com.dhiraj.blog.payloads.CommentDto;
-import com.dhiraj.blog.payloads.PostDto;
 import com.dhiraj.blog.repositories.CommentRepository;
 import com.dhiraj.blog.repositories.PostRepository;
 import org.modelmapper.ModelMapper;

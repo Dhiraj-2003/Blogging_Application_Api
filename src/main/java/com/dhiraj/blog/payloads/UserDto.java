@@ -15,6 +15,8 @@ import java.util.Set;
 @Setter
 public class UserDto {
 
+    private Integer id;
+
     @NotEmpty
     @Size(min = 2,message = "username must be of min 2 characters !!!")
     private String name;

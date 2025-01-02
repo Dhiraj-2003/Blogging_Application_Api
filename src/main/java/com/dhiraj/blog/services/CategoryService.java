@@ -3,7 +3,6 @@ package com.dhiraj.blog.services;
 import com.dhiraj.blog.payloads.CategoryDto;
 import com.dhiraj.blog.payloads.CategoryResponse;
 
-import java.util.List;
 
 public interface CategoryService {
     //Create
