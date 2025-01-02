@@ -1,19 +1,14 @@
 package com.dhiraj.blog.controllers;
 
-import com.dhiraj.blog.entities.Category;
 import com.dhiraj.blog.payloads.ApiResponse;
 import com.dhiraj.blog.payloads.CategoryDto;
 import com.dhiraj.blog.payloads.CategoryResponse;
 import com.dhiraj.blog.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping("/api/categories")

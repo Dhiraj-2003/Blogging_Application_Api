@@ -1,8 +1,6 @@
 package com.dhiraj.blog.payloads;
 
-import com.dhiraj.blog.entities.Category;
-import com.dhiraj.blog.entities.Comment;
-import com.dhiraj.blog.entities.User;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

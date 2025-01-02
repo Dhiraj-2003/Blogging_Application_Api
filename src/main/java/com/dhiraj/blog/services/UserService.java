@@ -1,6 +1,5 @@
 package com.dhiraj.blog.services;
 
-import com.dhiraj.blog.entities.User;
 import com.dhiraj.blog.payloads.UserDto;
 
 import java.util.List;
